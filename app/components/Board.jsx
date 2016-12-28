@@ -11,7 +11,6 @@ class Board extends React.Component{
         
         return(
             <div className="board">
-                <h1>Notes</h1>
                 {notes}
             </div>
         );
