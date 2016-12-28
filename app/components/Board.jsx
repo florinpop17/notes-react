@@ -10,7 +10,7 @@ class Board extends React.Component{
             notes.push(<Note text={`Note # ${i}`}/>);
         
         return(
-            <div>
+            <div className="board">
                 <h1>Notes</h1>
                 {notes}
             </div>
