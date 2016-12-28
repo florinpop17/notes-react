@@ -3,15 +3,13 @@ import Note from 'Note';
 
 class Board extends React.Component{
     render() {
-        
-        let notes = [];
-        
-        for(let i=0; i<10; i++)
-            notes.push(<Note text={`Note # ${i}`}/>);
-        
         return(
             <div className="board">
-                {notes}
+                <Note text="Note 1"/>
+                <Note text="Note 2"/>
+                <Note text="Note 3"/>
+                <Note text="Note 4"/>
+                <Note text="Note 5"/>
             </div>
         );
     }
