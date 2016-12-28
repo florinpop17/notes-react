@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Router, IndexRoute, hashHistory } from 'react-router';
-import Main from 'Main';
+import Board from 'Board';
 
 // App css
 require('style!css!applicationStyles');
