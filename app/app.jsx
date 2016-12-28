@@ -8,7 +8,7 @@ require('style!css!applicationStyles');
 
 ReactDOM.render(
     <Router history={hashHistory}>
-        <Route path="/" component={Main}></Route>
+        <Route path="/" component={Board}></Route>
     </Router>, 
     document.getElementById("react-container")
 );
