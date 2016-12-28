@@ -1,2 +1,2 @@
-# notes-react
-Notes application built with ReactJS
+# Notes App
+Notes application built with ReactJS.
