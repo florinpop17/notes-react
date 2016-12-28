@@ -5,20 +5,26 @@ class Note extends React.Component{
         super(props);
     }
     
-    render(){
+    getPositionStyle() {
+        let noteSize = 200; // Change if changed in CSS
+        
         let screenH = window.innerHeight;
         let screenW = window.innerWidth;
-        let noteSize = 200;
         let halfNoteSize = noteSize/2;
         let positionX = Math.floor(Math.random() * (screenW - halfNoteSize));
         let positionY = Math.floor(Math.random() * (screenH - halfNoteSize));
         
-        console.log(this.props.text, positionX, positionY, screenW, screenH);
-        
         let style = {
             left: positionX,
             top: positionY
-        }
+        };
+        
+        return style;
+    }
+    
+    render(){
+        
+        let style = this.getPositionStyle();
         return(
             <div className="note" style={style}>{this.props.text}</div>
         );
