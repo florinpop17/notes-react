@@ -1,7 +1,7 @@
 {
-  "name": "react-boilerplate",
+  "name": "notes-react",
   "version": "1.0.0",
-  "description": "React boilerplate",
+  "description": "Notes application built with ReactJS",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Flopet17/react-boilerplate.git"
+    "url": "git+https://github.com/Flopet17/notes-react.git"
   },
   "keywords": [
     "reactjs",
@@ -21,11 +21,10 @@
   "author": "Florin Pop",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Flopet17/react-boilerplate/issues"
+    "url": "https://github.com/Flopet17/notes-react/issues"
   },
-  "homepage": "https://github.com/Flopet17/react-boilerplate#readme",
+  "homepage": "https://github.com/Flopet17/notes-react#readme",
   "dependencies": {
-    "axios": "^0.15.3",
     "express": "^4.14.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
@@ -37,9 +36,6 @@
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
     "css-loader": "^0.26.1",
-    "foundation-sites": "^6.3.0",
-    "jquery": "^3.1.1",
-    "nodemon": "^1.11.0",
     "script-loader": "^0.7.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.14.0"
