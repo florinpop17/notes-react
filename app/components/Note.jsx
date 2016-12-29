@@ -34,7 +34,7 @@ class Note extends React.Component{
         
         if(editMode){
             innerNoteHTML = (
-                <div>
+                <div className="note-content">
                     <textarea ref="inputText" defaultValue={text}/>
                     <div class="buttons">
                         <button onClick={this.saveNote}><i className="fa fa-save"></i></button>
@@ -43,7 +43,7 @@ class Note extends React.Component{
             );
         } else {
             innerNoteHTML = (
-                <div>
+                <div className="note-content">
                     {text}
                     <div className="buttons">
                         <button onClick={this.editNote}><i className="fa fa-edit"></i></button>
