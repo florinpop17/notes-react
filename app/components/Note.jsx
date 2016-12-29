@@ -29,18 +29,19 @@ class Note extends React.Component{
     
     render(){
         let { text, left, top, editMode } = this.props.note;
+        let innerNoteHTML = "";
+        console.log(editMode);
         
         if(editMode){
-            return(
-                <div className="note" style={{left:left, top:top}}>
-                    <textarea ref="inputText" value={text}></textarea>
+            innerNoteHTML = (
+                <div>
+                    <textarea>Hello</textarea>
                     <button onClick={this.saveNote}>Save</button>
                 </div>
-            );   
+            );
         } else {
-
-            return(
-                <div className="note" style={{left:left, top:top}}>
+            innerNoteHTML = (
+                <div>
                     {text}
                     <div className="buttons">
                         <button onClick={this.editNote}>Edit</button>
@@ -49,6 +50,12 @@ class Note extends React.Component{
                 </div>
             );
         }
+        
+        return(
+            <div className="note" style={{left:left, top:top}}>
+                {innerNoteHTML}
+            </div>
+        );
     }
 }
 

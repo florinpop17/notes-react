@@ -25,7 +25,7 @@ class Board extends React.Component{
             left: pos.left,
             top: pos.top,
             noteId: uuid.v4(),
-            editMode: false
+            editMode: true
         });
         
         this.setState({
@@ -57,6 +57,8 @@ class Board extends React.Component{
         var noteIdxToEdit = notes.map((note) => note.noteId).indexOf(noteId);
         notes[noteIdxToEdit].editMode = true;
         
+        console.log('edit mode on');
+        
         this.setState({
             notes: notes
         });
@@ -80,7 +82,10 @@ class Board extends React.Component{
         let { notes } = this.state;   
         
         var noteIdxToSave = notes.map((note) => note.noteId).indexOf(noteId);
-        notes[noteIdxToEdit].text = newText;
+        notes[noteIdxToSave].text = newText;
+        notes[noteIdxToSave].editMode = false;
+        
+        console.log('saving');
         
         this.setState({
             notes: notes
