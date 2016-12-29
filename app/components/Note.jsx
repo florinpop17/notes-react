@@ -9,20 +9,20 @@ class Note extends React.Component{
     }
     
     editNote() {
-        let { noteId } = this.state.note;
+        let { noteId } = this.props.note;
         console.log('edit')
         this.props.onEditNote(noteId);
     }
     
     deleteNote() {
-        let { noteId } = this.state.note;
+        let { noteId } = this.props.note;
         console.log('delete')
         this.props.onDeleteNote(noteId);
     }
     
     render(){
         let { text, left, top } = this.props.note;
-        console.log('rendered note')
+        
         return(
             <div className="note" style={{left:left, top:top}}>
                 {text}
