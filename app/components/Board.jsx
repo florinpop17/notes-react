@@ -51,15 +51,14 @@ class Board extends React.Component{
     }
     
     handleEditNote(noteId) {
-        let { notes } = this.state;
+        let { notes } = this.state;        
         
-        for(let i=0; i<notes.length; i++){
-            if(notes[i].noteId === noteId){
-                console.log('found')
-                notes.splice(i,1);
-                break;
-            }
-        }
+        var noteIdxToEdit = notes.map((note) => note.noteId).indexOf(noteId);
+        notes[noteIdxToEdit].editMode = true;
+        
+        this.setState({
+            notes: notes
+        });
         
     }
     
@@ -73,7 +72,7 @@ class Board extends React.Component{
         
         this.setState({
             notes: notes
-        })
+        });
     }
     
     render() {
