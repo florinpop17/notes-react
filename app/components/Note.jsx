@@ -22,7 +22,7 @@ class Note extends React.Component{
     
     render(){
         let { text, left, top } = this.props.note;
-        
+        console.log('rendered note')
         return(
             <div className="note" style={{left:left, top:top}}>
                 {text}

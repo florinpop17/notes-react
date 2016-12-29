@@ -59,14 +59,12 @@ class Board extends React.Component{
     
     render() {
         let { notes } = this.state;
-        let displayNotes = "";
         
-        displayNotes = notes.map(note => {
+        let displayNotes = notes.map(note => {
             return (
-                <Note key={note.id} note={note} onEditNote={this.handleEditNote} onDeleteNote={this.handleDeleteNote}/>
+                <Note key={note.noteId} note={note} onEditNote={this.handleEditNote} onDeleteNote={this.handleDeleteNote}/>
             );
         });
-        
         
         return(
             <div className="board">
