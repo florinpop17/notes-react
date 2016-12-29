@@ -1,5 +1,6 @@
 import React from 'react';
 import Note from 'Note';
+import uuid from 'uuid';
 
 class Board extends React.Component{
     constructor(props) {
@@ -21,7 +22,8 @@ class Board extends React.Component{
         notes.push({
             text: 'New note',
             left: pos.left,
-            top: pos.top 
+            top: pos.top,
+            noteId: uuid.v4()
         });
         
         this.setState({
@@ -59,14 +61,12 @@ class Board extends React.Component{
         let { notes } = this.state;
         let displayNotes = "";
         
-        if(notes.length > 0) {
-            displayNotes = notes.map((note, i) => {
-                console.log(note);
-                return (
-                    <Note key={i} note={note} onEditNote={this.handleEditNote} onDeleteNote={this.handleDeleteNote}/>
-                );
-            });
-        }
+        displayNotes = notes.map(note => {
+            return (
+                <Note key={note.id} note={note} onEditNote={this.handleEditNote} onDeleteNote={this.handleDeleteNote}/>
+            );
+        });
+        
         
         return(
             <div className="board">

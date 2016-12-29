@@ -8,28 +8,27 @@ class Note extends React.Component{
         this.deleteNote = this.deleteNote.bind(this);
     }
     
-    editNote(noteId) {
+    editNote() {
+        let { noteId } = this.state.note;
         console.log('edit')
         this.props.onEditNote(noteId);
     }
     
-    deleteNote(noteId) {
+    deleteNote() {
+        let { noteId } = this.state.note;
         console.log('delete')
         this.props.onDeleteNote(noteId);
     }
     
     render(){
         let { text, left, top } = this.props.note;
-        let noteId = this.props.key;
-        
-        console.log(this.props)
         
         return(
             <div className="note" style={{left:left, top:top}}>
                 {text}
                 <div className="buttons">
-                    <button onClick={this.editNote(key)}>Edit</button>
-                    <button onClick={this.deleteNote(key)}>Delete</button>
+                    <button onClick={this.editNote}>Edit</button>
+                    <button onClick={this.deleteNote}>Delete</button>
                 </div>
             </div>
         );
