@@ -7,6 +7,7 @@ class Note extends React.Component{
         this.editNote = this.editNote.bind(this);
         this.deleteNote = this.deleteNote.bind(this);
         this.saveNote = this.saveNote.bind(this);
+        this.onNoteMouseMove = this.onNoteMouseMove.bind(this);
     }
     
     editNote() {
@@ -27,8 +28,15 @@ class Note extends React.Component{
         this.props.onSaveNote(newText, noteId);
     }
     
+    onNoteMouseMove(e) {
+        let posLeft = e.clientX;
+        let posTop = e.clientY;
+        
+        this.props.changePos(posLeft, posTop);
+    }
+    
     render(){
-        let { text, left, top, editMode } = this.props.note;
+        let { text, left, top, editMode, noteId } = this.props.note;
         
         let innerNoteHTML = "";
         
@@ -54,7 +62,7 @@ class Note extends React.Component{
         }
         
         return(
-            <div className="note" style={{left:left, top:top}}>
+            <div id={noteId} className="note" style={{left:left, top:top}} onMouseMove={this.onNoteMouseMove}>
                 {innerNoteHTML}
             </div>
         );
