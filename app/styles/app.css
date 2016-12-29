@@ -42,7 +42,6 @@ button {
 
 textarea {
     border: 0;
-    background-color: transparent;
     font-size: 20px;
     height: calc(100% - 50px);
     width: 100%;
