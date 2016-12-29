@@ -29,10 +29,11 @@ class Note extends React.Component{
     }
     
     onNoteMouseMove(e) {
+        let { noteId } = this.props.note;
         let posLeft = e.clientX;
         let posTop = e.clientY;
         
-        this.props.changePos(posLeft, posTop);
+        this.props.changePos(posLeft, posTop, noteId);
     }
     
     render(){

@@ -14,6 +14,7 @@ class Board extends React.Component{
         this.handleEditNote = this.handleEditNote.bind(this);
         this.handleDeleteNote = this.handleDeleteNote.bind(this);
         this.handleSaveNote = this.handleSaveNote.bind(this);
+        this.handleChangePos = this.handleChangePos.bind(this);
     }
     
     addNote() {
@@ -92,12 +93,16 @@ class Board extends React.Component{
         });
     }
     
+    handleChangePos(left, top, noteId) {
+        console.log(left, top, noteId);
+    }
+    
     render() {
         let { notes } = this.state;
         
         let displayNotes = notes.map(note => {
             return (
-                <Note key={note.noteId} note={note} onEditNote={this.handleEditNote} onDeleteNote={this.handleDeleteNote} onSaveNote={this.handleSaveNote}/>
+                <Note key={note.noteId} note={note} onEditNote={this.handleEditNote} onDeleteNote={this.handleDeleteNote} onSaveNote={this.handleSaveNote} changePos={this.handleChangePos}/>
             );
         });
         
