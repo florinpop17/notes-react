@@ -23,7 +23,8 @@ class Board extends React.Component{
             text: 'New note',
             left: pos.left,
             top: pos.top,
-            noteId: uuid.v4()
+            noteId: uuid.v4(),
+            editMode: false
         });
         
         this.setState({
@@ -50,11 +51,37 @@ class Board extends React.Component{
     }
     
     handleEditNote(noteId) {
-        console.log(noteId);
+        let { notes } = this.state;
+        
+        for(let i=0; i<notes.length; i++){
+            if(notes[i].noteId === noteId){
+                console.log('found')
+                notes.splice(i,1);
+                break;
+            }
+        }
+        
     }
     
     handleDeleteNote(noteId) {
-        console.log(noteId);
+        let { notes } = this.state;
+        
+//        for(let i=0; i<notes.length; i++){
+//            if(notes[i].noteId === noteId){
+//                console.log('found')
+//                notes.splice(i,1);
+//                break;
+//            }
+//        }
+        
+        
+        var noteIdxToRemove = notes.map((x) => x.noteId).indexOf(noteId);
+        notes.splice(noteIdxToRemove, 1);
+        
+        
+        this.setState({
+            notes: notes
+        })
     }
     
     render() {

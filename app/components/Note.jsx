@@ -10,13 +10,13 @@ class Note extends React.Component{
     
     editNote() {
         let { noteId } = this.props.note;
-        console.log('edit')
+        
         this.props.onEditNote(noteId);
     }
     
     deleteNote() {
         let { noteId } = this.props.note;
-        console.log('delete')
+        
         this.props.onDeleteNote(noteId);
     }
     
