@@ -40,19 +40,22 @@ class Note extends React.Component{
         
         let posLeft = e.clientX - 100; // added a bit of ofset
         let posTop = e.clientY - 20; // added a bit of ofset
-        
+        if(isMoving){
             this.props.changePos(posLeft, posTop, noteId);
+            console.log('moving');
+        }
         
-        console.log('drag')
     }
     
     move() {
+        console.log('started moving')
         this.setState({
             isMoving: true
         })
     }
     
     stop() {
+        console.log('stopped moving')
         this.setState({
             isMoving: false
         })
@@ -85,7 +88,7 @@ class Note extends React.Component{
         }
         
         return(
-            <div id={noteId} className="note" style={{left:left, top:top}} onClick={this.onNoteMouseMove} onMouseDown={this.move} onMouseUp={this.stop}>
+            <div id={noteId} className="note" style={{left:left, top:top}} onMouseMove={this.onNoteMouseMove} onMouseDown={this.move} onMouseUp={this.stop}>
                 {innerNoteHTML}
             </div>
         );

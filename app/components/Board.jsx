@@ -103,7 +103,6 @@ class Board extends React.Component{
             notes: notes
         });
         
-        console.log('move')
         console.log(left, top, noteId);
     }
     
