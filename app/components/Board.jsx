@@ -6,18 +6,21 @@ class Board extends React.Component{
         super(props);
         
         this.state = {
-            notes: {}
+            notes: []
         }
+        
+        this.addNote = this.addNote.bind(this);
     }
     
     addNote() {
         let { notes } = this.state;
         let pos = this.getRandomPosition();
+        let noteNr = notes.length + 1; //Get the number of notes and add 1 to get the number of the new note.
         
         notes.push({
-            text: '',
+            text: 'Note #'+noteNr,
             left: pos.left,
-            right: pos.right 
+            top: pos.top 
         });
         
         this.setState({
@@ -39,25 +42,27 @@ class Board extends React.Component{
             top: positionY
         }
         
+        
         return pos;
     }
     
     render() {
+        let { notes } = this.state;
+        let displayNotes = "";
+        
         if(notes.length > 0) {
-            let { notes } = this.state;
-
-            let displayNotes = notes.map((note, i) => {
+            displayNotes = notes.map((note, i) => {
+                console.log(note);
                 return (
-                    <Note key={i} noteText={note} />
+                    <Note key={i} note={note} />
                 );
             });
-        } else {
-            displayNotes = 
         }
+        
         return(
             <div className="board">
                 { displayNotes }
-                <button onClick={this.addNote.bind(this)}>Add note</button>
+                <button onClick={this.addNote}>Add note</button>
             </div>
         );
     }

@@ -6,11 +6,12 @@ class Note extends React.Component{
     }
     
     render(){
-        let { noteText, left, top } = this.props.note;
+        let { text, left, top } = this.props.note;
         
-        let style = {left, top};
+        console.log(this.props)
+        
         return(
-            <div className="note" style={style}>{this.props.noteText}</div>
+            <div className="note" style={{left:left, top:top}}>{text}</div>
         );
     }
 }
