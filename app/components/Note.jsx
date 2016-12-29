@@ -23,19 +23,19 @@ class Note extends React.Component{
     
     saveNote() {
         let { noteId } = this.props.note;
-        let newText = this.refs.inputText;
+        let newText = this.refs.inputText.value;
         this.props.onSaveNote(newText, noteId);
     }
     
     render(){
         let { text, left, top, editMode } = this.props.note;
+        
         let innerNoteHTML = "";
-        console.log(editMode);
         
         if(editMode){
             innerNoteHTML = (
                 <div>
-                    <textarea>Hello</textarea>
+                    <textarea ref="inputText" defaultValue={text}/>
                     <button onClick={this.saveNote}>Save</button>
                 </div>
             );

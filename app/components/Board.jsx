@@ -25,7 +25,7 @@ class Board extends React.Component{
             left: pos.left,
             top: pos.top,
             noteId: uuid.v4(),
-            editMode: true
+            editMode: false
         });
         
         this.setState({
