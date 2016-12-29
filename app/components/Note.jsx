@@ -22,7 +22,9 @@ class Note extends React.Component{
     }
     
     saveNote() {
-        
+        let { noteId } = this.props.note;
+        let newText = this.refs.inputText;
+        this.props.onSaveNote(newText, noteId);
     }
     
     render(){

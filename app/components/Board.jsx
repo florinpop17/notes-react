@@ -13,6 +13,7 @@ class Board extends React.Component{
         this.addNote = this.addNote.bind(this);
         this.handleEditNote = this.handleEditNote.bind(this);
         this.handleDeleteNote = this.handleDeleteNote.bind(this);
+        this.handleSaveNote = this.handleSaveNote.bind(this);
     }
     
     addNote() {
@@ -75,12 +76,23 @@ class Board extends React.Component{
         });
     }
     
+    handleSaveNote(newText, noteId) {
+        let { notes } = this.state;   
+        
+        var noteIdxToSave = notes.map((note) => note.noteId).indexOf(noteId);
+        notes[noteIdxToEdit].text = newText;
+        
+        this.setState({
+            notes: notes
+        });
+    }
+    
     render() {
         let { notes } = this.state;
         
         let displayNotes = notes.map(note => {
             return (
-                <Note key={note.noteId} note={note} onEditNote={this.handleEditNote} onDeleteNote={this.handleDeleteNote}/>
+                <Note key={note.noteId} note={note} onEditNote={this.handleEditNote} onDeleteNote={this.handleDeleteNote} onSaveNote={this.handleSaveNote}/>
             );
         });
         
