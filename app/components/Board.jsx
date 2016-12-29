@@ -64,20 +64,12 @@ class Board extends React.Component{
     }
     
     handleDeleteNote(noteId) {
-        let { notes } = this.state;
+        let { notes } = this.state;        
         
-//        for(let i=0; i<notes.length; i++){
-//            if(notes[i].noteId === noteId){
-//                console.log('found')
-//                notes.splice(i,1);
-//                break;
-//            }
-//        }
-        
-        
-        var noteIdxToRemove = notes.map((x) => x.noteId).indexOf(noteId);
+        var noteIdxToRemove = notes.map((note) => note.noteId).indexOf(noteId);
         notes.splice(noteIdxToRemove, 1);
         
+        console.log('deleted note');
         
         this.setState({
             notes: notes
