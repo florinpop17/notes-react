@@ -36,7 +36,7 @@ class Note extends React.Component{
             innerNoteHTML = (
                 <div className="note-content">
                     <textarea ref="inputText" defaultValue={text}/>
-                    <div class="buttons">
+                    <div className="buttons">
                         <button onClick={this.saveNote}><i className="fa fa-save"></i></button>
                     </div>                
                 </div>

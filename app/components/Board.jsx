@@ -104,7 +104,7 @@ class Board extends React.Component{
         return(
             <div className="board">
                 { displayNotes }
-                <button onClick={this.addNote}>Add note</button>
+                <button onClick={this.addNote}><i className="fa fa-plus"></i></button>
             </div>
         );
     }

@@ -30,3 +30,12 @@ html, body {
     bottom: 0;
     right: 0;
 }
+
+button {
+    padding: 7px;
+    background-color: orangered;
+    color: white;
+    border: none;
+    margin: 3px;
+    font-size: 16px;
+}
