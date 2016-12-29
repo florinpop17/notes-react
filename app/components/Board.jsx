@@ -10,15 +10,16 @@ class Board extends React.Component{
         }
         
         this.addNote = this.addNote.bind(this);
+        this.handleEditNote = this.handleEditNote.bind(this);
+        this.handleDeleteNote = this.handleDeleteNote.bind(this);
     }
     
     addNote() {
         let { notes } = this.state;
         let pos = this.getRandomPosition();
-        let noteNr = notes.length + 1; //Get the number of notes and add 1 to get the number of the new note.
         
         notes.push({
-            text: 'Note #'+noteNr,
+            text: 'New note',
             left: pos.left,
             top: pos.top 
         });
@@ -46,6 +47,14 @@ class Board extends React.Component{
         return pos;
     }
     
+    handleEditNote(noteId) {
+        console.log(noteId);
+    }
+    
+    handleDeleteNote(noteId) {
+        console.log(noteId);
+    }
+    
     render() {
         let { notes } = this.state;
         let displayNotes = "";
@@ -54,7 +63,7 @@ class Board extends React.Component{
             displayNotes = notes.map((note, i) => {
                 console.log(note);
                 return (
-                    <Note key={i} note={note} />
+                    <Note key={i} note={note} onEditNote={this.handleEditNote} onDeleteNote={this.handleDeleteNote}/>
                 );
             });
         }
