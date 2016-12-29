@@ -47,8 +47,7 @@ class Board extends React.Component{
             left: positionX,
             top: positionY
         }
-        
-        
+                
         return pos;
     }
     
@@ -94,6 +93,17 @@ class Board extends React.Component{
     }
     
     handleChangePos(left, top, noteId) {
+        let { notes } = this.state;   
+        
+        var noteToMove = notes.map((note) => note.noteId).indexOf(noteId);
+        notes[noteToMove].left = left;
+        notes[noteToMove].top = top;
+        
+        this.setState({
+            notes: notes
+        });
+        
+        console.log('move')
         console.log(left, top, noteId);
     }
     

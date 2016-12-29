@@ -8,6 +8,12 @@ class Note extends React.Component{
         this.deleteNote = this.deleteNote.bind(this);
         this.saveNote = this.saveNote.bind(this);
         this.onNoteMouseMove = this.onNoteMouseMove.bind(this);
+        this.move = this.move.bind(this);
+        this.stop = this.stop.bind(this);
+        
+        this.state = {
+            isMoving: false
+        }
     }
     
     editNote() {
@@ -30,10 +36,26 @@ class Note extends React.Component{
     
     onNoteMouseMove(e) {
         let { noteId } = this.props.note;
-        let posLeft = e.clientX;
-        let posTop = e.clientY;
+        let { isMoving } = this.state;
         
-        this.props.changePos(posLeft, posTop, noteId);
+        let posLeft = e.clientX - 100; // added a bit of ofset
+        let posTop = e.clientY - 20; // added a bit of ofset
+        
+            this.props.changePos(posLeft, posTop, noteId);
+        
+        console.log('drag')
+    }
+    
+    move() {
+        this.setState({
+            isMoving: true
+        })
+    }
+    
+    stop() {
+        this.setState({
+            isMoving: false
+        })
     }
     
     render(){
@@ -63,7 +85,7 @@ class Note extends React.Component{
         }
         
         return(
-            <div id={noteId} className="note" style={{left:left, top:top}} onMouseMove={this.onNoteMouseMove}>
+            <div id={noteId} className="note" style={{left:left, top:top}} onClick={this.onNoteMouseMove} onMouseDown={this.move} onMouseUp={this.stop}>
                 {innerNoteHTML}
             </div>
         );
