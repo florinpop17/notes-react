@@ -6,29 +6,54 @@ class Board extends React.Component{
         super(props);
         
         this.state = {
-            notes: []
+            notes: {}
         }
     }
     
     addNote() {
         let { notes } = this.state;
+        let pos = this.getRandomPosition();
         
-        notes.push(`Note ${notes.length}`);
+        notes.push({
+            text: '',
+            left: pos.left,
+            right: pos.right 
+        });
         
         this.setState({
             notes: notes
         })
     }
     
+    getRandomPosition() {
+        let noteSize = 200; //Change this when you change it in CSS
+        
+        let screenH = window.innerHeight;
+        let screenW = window.innerWidth;
+        let halfNoteSize = noteSize/2;
+        let positionX = Math.floor(Math.random() * (screenW - halfNoteSize));
+        let positionY = Math.floor(Math.random() * (screenH - halfNoteSize));
+        
+        let pos = {
+            left: positionX,
+            top: positionY
+        }
+        
+        return pos;
+    }
+    
     render() {
-        let { notes } = this.state;
-        
-        let displayNotes = notes.map((note, i) => {
-            return (
-                <Note key={i} noteText={note} />
-            );
-        });
-        
+        if(notes.length > 0) {
+            let { notes } = this.state;
+
+            let displayNotes = notes.map((note, i) => {
+                return (
+                    <Note key={i} noteText={note} />
+                );
+            });
+        } else {
+            displayNotes = 
+        }
         return(
             <div className="board">
                 { displayNotes }

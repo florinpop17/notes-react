@@ -8,7 +8,7 @@ class Note extends React.Component{
     render(){
         let { noteText, left, top } = this.props.note;
         
-        let style = {...left, ...top}
+        let style = {left, top};
         return(
             <div className="note" style={style}>{this.props.noteText}</div>
         );
